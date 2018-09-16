@@ -1,5 +1,5 @@
 # ProjectInfo
-Geographic Information Systems (GIS) Tools and Addins for Esri's End Users
+Geographic Information Systems (GIS) Tools for Esri's End Users
 
 This is an (<sup>*</sup>semi-)open source project for re-creating Esri's Advance Tools with only a Basic license.
 Why not to implement everything with open source libraries?
