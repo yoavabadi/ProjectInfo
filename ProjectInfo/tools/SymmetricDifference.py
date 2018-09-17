@@ -66,9 +66,14 @@ class SymmetricDifference(object):
         symmetric_layer = parameters[1].valueAsText
         output_layer = parameters[2].valueAsText
 
+        # Dissolve input and symmetric layers to two single polygons, to
+        # avoid collisions between input polygons' symmetric differences
         in_geometry = arcpy.Dissolve_management(in_layer, arcpy.Geometry())[0]
         symmetric_difference_geometry = arcpy.Dissolve_management(symmetric_layer, arcpy.Geometry())[0]
+        # Perform symmetric difference between the two above geometries
         symmetric_difference_geometry = [in_geometry.symmetricDifference(symmetric_difference_geometry)]
+        # Break apart the symmetric difference to separated polygons
         symmetric_difference_geometry = arcpy.Dissolve_management(symmetric_difference_geometry,
                                                                   arcpy.Geometry(), multi_part="SINGLE_PART")
+        # Retrieve the polygons data from input layer
         return arcpy.SpatialJoin_analysis(symmetric_difference_geometry, in_layer, output_layer)
