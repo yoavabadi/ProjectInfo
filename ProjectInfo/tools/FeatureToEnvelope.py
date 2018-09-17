@@ -15,7 +15,7 @@ import arcpy
 class FeatureToEnvelope(object):
     def __init__(self):
         """Define the tool (tool name is the name of the class)."""
-        self.label = "Polygon To Line"
+        self.label = "Feature To Envelope"
         self.description = "Creates an Envelope from a Feature layer."
         self.canRunInBackground = False
         self.category = "Data Management"
