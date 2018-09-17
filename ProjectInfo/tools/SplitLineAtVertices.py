@@ -68,3 +68,4 @@ class SplitLineAtVertices(object):
             lines += [arcpy.Polyline(arcpy.Array([points.getObject(i),
                                                  points.getObject(i+1)])) for i in range(len(points) - 1)]
         return arcpy.CopyFeatures_management(lines, out_layer)
+
