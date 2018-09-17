@@ -1,22 +1,22 @@
 '''-------------------------------------------------------------------------------
- Tool Name:   FeaturesToPoint
- Source Name: FeaturesToPoint.py
+ Tool Name:   FeatureVerticesToPoints
+ Source Name: FeatureVerticesToPoints.py
  Version:     ArcGIS 10.1
  License:     Apache 2.0
  Author:      Yoav Abadi
  Updated by:  Yoav Abadi
- Description:  Description: Creates an Envelope from a Feature layer
+ Description: Creates Points from feature's vertices
  History:     Initial coding - 16/09/2018, version 1.0
  Updated:
 -------------------------------------------------------------------------------'''
 import arcpy
 
 
-class FeaturesToPoint(object):
+class FeatureVerticesToPoints(object):
     def __init__(self):
         """Define the tool (tool name is the name of the class)."""
-        self.label = "Features To Point"
-        self.description = "Creates a Points Features of true centroid from feature layer."
+        self.label = "Feature Vertices To Points"
+        self.description = "Creates Points from feature's vertices."
         self.canRunInBackground = False
         self.category = "Data Management"
 
@@ -58,5 +58,10 @@ class FeaturesToPoint(object):
         out_layer = parameters[1].valueAsText
 
         geometries_list = arcpy.CopyFeatures_management(in_layer, arcpy.Geometry())
-        result_geometry = [arcpy.PointGeometry(polygon.centroid) for polygon in geometries_list]
-        return arcpy.SpatialJoin_analysis(result_geometry, in_layer, out_layer)
+        points = []
+        for geometry in geometries_list:
+            parts = geometry.getPart()
+            for part in parts:
+                points += [arcpy.PointGeometry(part.getObject(i)) for i in range(len(part))]
+        return arcpy.SpatialJoin_analysis(points, in_layer, out_layer)
+

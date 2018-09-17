@@ -29,6 +29,7 @@ from FeatureToEnvelope import FeatureToEnvelope
 from FlipLines import FlipLines
 from FeaturesToPoint import FeaturesToPoint
 from SplitLineAtVertices import SplitLineAtVertices
+from FeatureVerticesToPoints import FeatureVerticesToPoints
 
 
 class Toolbox(object):
@@ -41,4 +42,4 @@ class Toolbox(object):
         self.tools = [SplitLineAtIntersection, ConvexHull, Erase, SymmetricDifference,
                       PolygonToLine, AggregatePolygons, SimplifyFeatures,
                       FeatureToEnvelope, FlipLines, FeaturesToPoint,
-                      SplitLineAtVertices]
+                      SplitLineAtVertices, FeatureVerticesToPoints]
