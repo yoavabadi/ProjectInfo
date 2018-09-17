@@ -77,3 +77,4 @@ class SymmetricDifference(object):
                                                                   arcpy.Geometry(), multi_part="SINGLE_PART")
         # Retrieve the polygons data from input layer
         return arcpy.SpatialJoin_analysis(symmetric_difference_geometry, in_layer, output_layer)
+
