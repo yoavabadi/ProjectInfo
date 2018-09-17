@@ -18,7 +18,7 @@ sys.path.append(tools_dir)
 # Do not compile .pyc files for the tool modules.
 sys.dont_write_bytecode = True
 
-from SplitLines import SplitLines
+from SplitLineAtIntersection import SplitLineAtIntersection
 from ConvexHull import ConvexHull
 from Erase import Erase
 from SymmetricDifference import SymmetricDifference
@@ -26,6 +26,9 @@ from PolygonToLine import PolygonToLine
 from AggregatePolygons import AggregatePolygons
 from SimplifyFeatures import SimplifyFeatures
 from FeatureToEnvelope import FeatureToEnvelope
+from FlipLines import FlipLines
+from FeaturesToPoint import FeaturesToPoint
+from SplitLineAtVertices import SplitLineAtVertices
 
 
 class Toolbox(object):
@@ -35,6 +38,7 @@ class Toolbox(object):
         self.label = "ProjectInfoToolbox"
         self.alias = "Project Info Tool box"
         # List of tool classes associated with this toolbox
-        self.tools = [SplitLines, ConvexHull, Erase, SymmetricDifference,
+        self.tools = [SplitLineAtIntersection, ConvexHull, Erase, SymmetricDifference,
                       PolygonToLine, AggregatePolygons, SimplifyFeatures,
-                      FeatureToEnvelope]
+                      FeatureToEnvelope, FlipLines, FeaturesToPoint,
+                      SplitLineAtVertices]

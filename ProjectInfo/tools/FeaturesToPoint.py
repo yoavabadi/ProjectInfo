@@ -1,22 +1,22 @@
 '''-------------------------------------------------------------------------------
- Tool Name:   FeatureToEnvelope
- Source Name: FeatureToEnvelope.py
+ Tool Name:   FeaturesToPoint
+ Source Name: FeaturesToPoint.py
  Version:     ArcGIS 10.1
  License:     Apache 2.0
  Author:      Yoav Abadi
  Updated by:  Yoav Abadi
- Description: Creates an Envelope from a Feature layer
+ Description:  Description: Creates an Envelope from a Feature layer
  History:     Initial coding - 16/09/2018, version 1.0
  Updated:
 -------------------------------------------------------------------------------'''
 import arcpy
 
 
-class FeatureToEnvelope(object):
+class FeaturesToPoint(object):
     def __init__(self):
         """Define the tool (tool name is the name of the class)."""
-        self.label = "Feature To Envelope"
-        self.description = "Creates an Envelope from a Feature layer."
+        self.label = "Features To Point"
+        self.description = "Creates a Points Features of true centroid from feature layer."
         self.canRunInBackground = False
         self.category = "Data Management"
 
@@ -58,7 +58,6 @@ class FeatureToEnvelope(object):
         out_layer = parameters[1].valueAsText
 
         geometries_list = arcpy.CopyFeatures_management(in_layer, arcpy.Geometry())
-        result_geometry = [polygon.extent.polygon for polygon in geometries_list]
+        result_geometry = [polygon.centroid for polygon in geometries_list]
         return arcpy.SpatialJoin_analysis(result_geometry, in_layer, out_layer)
-
 

@@ -1,29 +1,29 @@
 '''-------------------------------------------------------------------------------
- Tool Name:   FeatureToEnvelope
- Source Name: FeatureToEnvelope.py
+ Tool Name:   FlipLines
+ Source Name: FlipLines.py
  Version:     ArcGIS 10.1
  License:     Apache 2.0
  Author:      Yoav Abadi
  Updated by:  Yoav Abadi
- Description: Creates an Envelope from a Feature layer
+ Description: Flip polyline's end and start vertices.
  History:     Initial coding - 16/09/2018, version 1.0
  Updated:
 -------------------------------------------------------------------------------'''
 import arcpy
 
 
-class FeatureToEnvelope(object):
+class FlipLines(object):
     def __init__(self):
         """Define the tool (tool name is the name of the class)."""
-        self.label = "Feature To Envelope"
-        self.description = "Creates an Envelope from a Feature layer."
+        self.label = "Flip Lines"
+        self.description = "Flip polyline's end and start vertices."
         self.canRunInBackground = False
         self.category = "Data Management"
 
     def getParameterInfo(self):
         """Define parameter definitions"""
         param0 = arcpy.Parameter(name="in_layer",
-                                 displayName="Feature Layer",
+                                 displayName="Line Layer",
                                  direction="Input",
                                  parameterType="Required",
                                  datatype="GPFeatureLayer")
@@ -57,8 +57,13 @@ class FeatureToEnvelope(object):
         in_layer = parameters[0].valueAsText
         out_layer = parameters[1].valueAsText
 
-        geometries_list = arcpy.CopyFeatures_management(in_layer, arcpy.Geometry())
-        result_geometry = [polygon.extent.polygon for polygon in geometries_list]
-        return arcpy.SpatialJoin_analysis(result_geometry, in_layer, out_layer)
+        polyline_geometries = arcpy.CopyFeatures_management(in_layer, arcpy.Geometry())
 
+        flipped_lines = list()
+        for line in polyline_geometries:
+            line_array = line.getPart(0)  # single-part polyline => one line array (more then one element - multipart)
+            reverse_line = arcpy.Polyline(
+                arcpy.Array([line_array.getObject(i) for i in range(len(line_array) - 1, -1, -1)]))
+            flipped_lines.append(reverse_line)
+        return arcpy.CopyFeatures_management(flipped_lines, out_layer)
 
