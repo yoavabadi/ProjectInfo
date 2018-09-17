@@ -25,6 +25,7 @@ from SymmetricDifference import SymmetricDifference
 from PolygonToLine import PolygonToLine
 from AggregatePolygons import AggregatePolygons
 from SimplifyFeatures import SimplifyFeatures
+from FeatureToEnvelope import FeatureToEnvelope
 
 
 class Toolbox(object):
@@ -35,4 +36,5 @@ class Toolbox(object):
         self.alias = "Project Info Tool box"
         # List of tool classes associated with this toolbox
         self.tools = [SplitLines, ConvexHull, Erase, SymmetricDifference,
-                      PolygonToLine, AggregatePolygons, SimplifyFeatures]
+                      PolygonToLine, AggregatePolygons, SimplifyFeatures,
+                      FeatureToEnvelope]

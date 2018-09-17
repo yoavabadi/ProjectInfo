@@ -16,7 +16,7 @@ class SplitLines(object):
     def __init__(self):
         """Define the tool (tool name is the name of the class)."""
         self.label = "Split Lines"
-        self.description = "Split lines by there intersection points"
+        self.description = "Split lines by they're intersection points"
         self.canRunInBackground = False
         self.category = "Data Management"
 
