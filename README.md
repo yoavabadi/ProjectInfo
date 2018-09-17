@@ -61,6 +61,10 @@ The tools are organized into toolsets, currently only one has been developed -Th
   
   <img src="https://github.com/yoavabadi/ProjectInfo/blob/master/aggregation_diff.PNG" width="200">
 
+  ##### Known Issues:
+   * Not Optimal solution - based on a convex hull method
+   * Way to improve - check angles and extend polygons in the angles' directions
+  
 * #### Feature To Envelope
 
   This tool Creates an Envelope from a Feature layer.
@@ -83,11 +87,7 @@ The tools are organized into toolsets, currently only one has been developed -Th
 
 * #### Split Line At Vertices
 
-  This tool Split Line At Vertices
-  ##### Known Issues:
-   * Not Optimal solution - based on a convex hull method
-   * Way to improve - check angles and extend polygons in the angles' directions
-  
+  This tool Split Line At Vertices.
   
 ## Licensing
 Licensed under the Apache License, Version 2.0 (the "License").
