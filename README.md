@@ -15,9 +15,9 @@ This project welcomes contributions from anyone and everyone,  of many forms.
 
 Examples of contributions include:
 
-Code patches
-Documentation improvements
-Bug reports and patch reviews. 
+* Code patches
+* Documentation improvements
+* Bug reports and patch reviews. 
 
 Those contributions should be performed by [submitting a pull request](https://github.com/yoavabadi/ProjectInfo/pulls).
 
