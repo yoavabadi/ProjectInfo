@@ -59,7 +59,8 @@ The tools are organized into toolsets, currently only one has been developed -Th
   This tool creates an aggregation layer of the input polygons, aggregated by a tolerance distance, with convex hull.
   This tool result differ from esri's tool, as you can see in the below figure (this tool's result in green, Esri's in red):
   
-  ![alt tag](/aggregation_diff.PNG)
+  <img src="https://github.com/yoavabadi/ProjectInfo/blob/master/aggregation_diff.PNG" width="100">
+
 
   ##### Known Issues:
    * Not Optimal solution - based on a convex hull method
