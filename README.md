@@ -42,7 +42,7 @@ The tools are organized into toolsets, currently only one has been developed -Th
 
   This tool creates a Convex Hull of the input layer. This feature exists in ArcInfo, as part of the 'Minimum Bounding Geometry' tool.
 
-* #### Split Lines
+* #### Split Line At Intersection
 
   This tool Split polylines in a polyline layer, by they're intersection points.
 
@@ -61,7 +61,29 @@ The tools are organized into toolsets, currently only one has been developed -Th
   
   <img src="https://github.com/yoavabadi/ProjectInfo/blob/master/aggregation_diff.PNG" width="200">
 
+* #### Feature To Envelope
 
+  This tool Creates an Envelope from a Feature layer.
+  
+
+* #### Features To Point
+
+  This tool Creates a Points Features of true centroid from feature layer.
+  
+
+* #### Flip Lines
+
+  This tool Flips polyline's end and start vertices directions.
+  
+
+* #### Feature Vertices To Points
+
+  This tool Creates Points from feature's vertices.
+  
+
+* #### Split Line At Vertices
+
+  This tool Split Line At Vertices
   ##### Known Issues:
    * Not Optimal solution - based on a convex hull method
    * Way to improve - check angles and extend polygons in the angles' directions
