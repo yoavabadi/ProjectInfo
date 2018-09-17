@@ -5,7 +5,7 @@
  License:     Apache 2.0
  Author:      Yoav Abadi
  Updated by:  Yoav Abadi
- Description:  Description: Creates an Envelope from a Feature layer
+ Description:  Description: Creates a Points Features of true centroid from feature layer.
  History:     Initial coding - 16/09/2018, version 1.0
  Updated:
 -------------------------------------------------------------------------------'''
